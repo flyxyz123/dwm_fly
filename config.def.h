@@ -119,7 +119,7 @@ static Key keys[] = {
 	{ MODKEY, XK_q, spawn, SHCMD("mullvad connect -w; kill -RTMIN+4 \"$(cat \"$XDG_CACHE_HOME/pidofbar\")\"; qbittorrent") },
 	{ MODKEY, XK_r, spawn, SHCMD("xsel -ob | rev | xsel -ib") },
 	{ MODKEY, XK_s, spawn, SHCMD("shufwall") },
-	{ MODKEY, XK_v, spawn, SHCMD("if mullvad status | grep -q 'Disconnect'; then mullvad connect -w; else killall qbittorrent; mullvad disconnect -w; fi; kill -RTMIN+4 \"$(cat \"$XDG_CACHE_HOME/pidofbar\")\"") },
+	{ MODKEY, XK_v, spawn, SHCMD("if mullvad status | grep -q 'Disconnect'; then mullvad connect -w; else killall qbittorrent weechat; mullvad disconnect -w; fi; kill -RTMIN+4 \"$(cat \"$XDG_CACHE_HOME/pidofbar\")\"") },
 	{ MODKEY, XK_w, spawn, SHCMD("$BROWSER") },
 	{ MODKEY, XK_y, spawn, SHCMD("mpvy -s") },
 	{ MODKEY|ControlMask, XK_y,	spawn, SHCMD("tsp mpvy -A -u \"$(xsel -ob)\"") },
