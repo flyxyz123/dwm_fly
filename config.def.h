@@ -116,10 +116,8 @@ static Key keys[] = {
 	{ MODKEY, XF86XK_AudioMute, spawn, SHCMD("amixer set Capture toggle; kill -RTMIN \"$(cat \"$XDG_CACHE_HOME/pidofbar\")\"") },
 	{ MODKEY, XK_Print, spawn, SHCMD("xrectsel '%w %h %x %y' | xargs sh -c 'ffmpeg -f x11grab -s \"$1x$2\" -i \"$DISPLAY+$3,$4\" -vframes 1 \"$XDG_PICTURES_DIR/screenshots/$(time.uuid).png\"' shell") },
 	{ MODKEY, XK_n, spawn, SHCMD("dunstctl close") },
-	{ MODKEY, XK_q, spawn, SHCMD("mullvad connect -w; kill -RTMIN+4 \"$(cat \"$XDG_CACHE_HOME/pidofbar\")\"; qbittorrent") },
 	{ MODKEY, XK_r, spawn, SHCMD("xsel -ob | rev | xsel -ib") },
 	{ MODKEY, XK_s, spawn, SHCMD("shufwall") },
-	{ MODKEY, XK_v, spawn, SHCMD("if mullvad status | grep -q 'Disconnect'; then mullvad connect -w; else killall qbittorrent weechat; mullvad disconnect -w; fi; kill -RTMIN+4 \"$(cat \"$XDG_CACHE_HOME/pidofbar\")\"") },
 	{ MODKEY, XK_w, spawn, SHCMD("$BROWSER") },
 	{ MODKEY, XK_y, spawn, SHCMD("mpvy -s") },
 	{ MODKEY|ControlMask, XK_y,	spawn, SHCMD("tsp mpvy -A -u \"$(xsel -ob)\"") },
@@ -127,6 +125,9 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask, XK_n, spawn, SHCMD("alarm 12 'Boiling Water!'") },
 	{ MODKEY|ShiftMask, XK_w, spawn, SHCMD("mullvad-exclude $BROWSER") },
 	{ MODKEY|ShiftMask, XK_y, spawn, SHCMD("mpvy -a") },
+
+	//{ MODKEY, XK_q, spawn, SHCMD("mullvad connect -w; kill -RTMIN+4 \"$(cat \"$XDG_CACHE_HOME/pidofbar\")\"; qbittorrent") },
+	//{ MODKEY, XK_v, spawn, SHCMD("if mullvad status | grep -q 'Disconnect'; then mullvad connect -w; else killall qbittorrent weechat; mullvad disconnect -w; fi; kill -RTMIN+4 \"$(cat \"$XDG_CACHE_HOME/pidofbar\")\"") },
 };
 
 /* button definitions */
