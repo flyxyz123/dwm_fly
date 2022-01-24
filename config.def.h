@@ -118,13 +118,15 @@ static Key keys[] = {
 	{ MODKEY, XK_n, spawn, SHCMD("dunstctl close") },
 	{ MODKEY, XK_q, spawn, SHCMD("qbittorrent") },
 	{ MODKEY, XK_r, spawn, SHCMD("xsel -ob | rev | xsel -ib") },
-	{ MODKEY, XK_s, spawn, SHCMD("shufwall") },
+	// Use "$(xsel -op)" instead of "xsel -op | sdcv" because: the latter won't quit if found items similar and require user input. Not sure why.
+	{ MODKEY, XK_s, spawn, SHCMD("SDCV_PAGER='less -R' alacritty -e sdcv --color \"$(xsel -op)\"") },
 	{ MODKEY, XK_v, spawn, SHCMD("mullvad reconnect") },
 	{ MODKEY, XK_w, spawn, SHCMD("$BROWSER") },
 	{ MODKEY, XK_y, spawn, SHCMD("mpvy -s") },
 	{ MODKEY|ControlMask, XK_y,	spawn, SHCMD("tsp mpvy -A -u \"$(xsel -ob)\"") },
 	{ MODKEY|ShiftMask, XK_Print, spawn, SHCMD("reco") },
 	{ MODKEY|ShiftMask, XK_n, spawn, SHCMD("alarm 12 'Boiling Water!'") },
+	{ MODKEY|ShiftMask, XK_s, spawn, SHCMD("shufwall") },
 	{ MODKEY|ShiftMask, XK_w, spawn, SHCMD("mullvad-exclude $BROWSER") },
 	{ MODKEY|ShiftMask, XK_y, spawn, SHCMD("mpvy -a") },
 };
