@@ -119,7 +119,8 @@ static Key keys[] = {
 	{ MODKEY, XK_q, spawn, SHCMD("qbittorrent") },
 	{ MODKEY, XK_r, spawn, SHCMD("xsel -ob | rev | xsel -ib") },
 	// Use "$(xsel -op)" instead of "xsel -op | sdcv" because: the latter won't quit if found items similar and require user input. Not sure why.
-	{ MODKEY, XK_s, spawn, SHCMD("SDCV_PAGER='less -R' alacritty -e sdcv --color \"$(xsel -op)\"") },
+	// use env inside, to fix a bug: alacritty created by `alacritty msg create-window` will quit immediately if result is less than one page.
+	{ MODKEY, XK_s, spawn, SHCMD("alacritty -e env SDCV_PAGER='less -R' sdcv --color \"$(xsel -op)\"") },
 	{ MODKEY, XK_v, spawn, SHCMD("mullvad reconnect") },
 	{ MODKEY, XK_w, spawn, SHCMD("$BROWSER") },
 	{ MODKEY, XK_y, spawn, SHCMD("mpvy -s") },
