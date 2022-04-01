@@ -113,7 +113,6 @@ static Key keys[] = {
 	{ 0, XF86XK_AudioRaiseVolume, spawn, SHCMD("amixer set Master 5%+; kill -RTMIN+1 $(pidof -x sbar)") },
 	{ 0, XF86XK_MonBrightnessUp, spawn, SHCMD("backlight -u") },
 	{ 0, XF86XK_MonBrightnessDown, spawn, SHCMD("backlight -d") },
-	{ 0, XK_Caps_Lock,spawn, SHCMD("sleep 0.2; kill -RTMIN+3 $(pidof -x sbar)") },
 	{ 0, XK_Print, spawn, SHCMD("ffmpeg -f x11grab -i \"$DISPLAY\" -vframes 1 \"$XDG_PICTURES_DIR/screenshots/$(time.uuid).png\" && notify-send 'Screenshot Finished'") },
 	{ MODKEY, XF86XK_AudioMute, spawn, SHCMD("amixer set Capture toggle; kill -RTMIN $(pidof -x sbar)") },
 	{ MODKEY, XK_Print, spawn, SHCMD("xrectsel '%w %h %x %y' | xargs sh -c 'ffmpeg -f x11grab -s \"$1x$2\" -i \"$DISPLAY+$3,$4\" -vframes 1 \"$XDG_PICTURES_DIR/screenshots/$(time.uuid).png\"' shell && notify-send 'Screenshot Finished'") },
@@ -132,6 +131,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask, XK_s, spawn, SHCMD("shufwall") },
 	{ MODKEY|ShiftMask, XK_w, spawn, SHCMD("mullvad-exclude $BROWSER") },
 	{ MODKEY|ShiftMask, XK_y, spawn, SHCMD("mpvy -a") },
+	//{ 0, XK_Caps_Lock,spawn, SHCMD("sleep 0.2; kill -RTMIN+3 $(pidof -x sbar)") },
 };
 
 /* button definitions */
