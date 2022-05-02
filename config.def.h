@@ -124,6 +124,7 @@ static Key keys[] = {
 	{ MODKEY, XK_s, spawn, SHCMD("alacritty -e env SDCV_PAGER='less -R' sdcv --color \"$(xsel -op)\"") },
 	{ MODKEY, XK_v, spawn, SHCMD("mullvad reconnect") },
 	{ MODKEY, XK_w, spawn, SHCMD("$BROWSER") },
+	{ MODKEY, XK_x, spawn, SHCMD("sleep 0.3; xcross") },
 	{ MODKEY, XK_y, spawn, SHCMD("mpvy -s") },
 	{ MODKEY|ControlMask, XK_y,	spawn, SHCMD("tsp mpvy -A -u \"$(xsel -ob)\"") },
 	{ MODKEY|ShiftMask, XK_Print, spawn, SHCMD("reco") },
