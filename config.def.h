@@ -36,7 +36,9 @@ static const Rule rules[] = {
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
-	{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
+	{ "firefox",  NULL,       NULL,       1 << 1,       0,           -1 },
+	{ NULL,       NULL,       "monerod",  1 << 5,       0,           -1 },
+	{ "qBittorrent", NULL,    NULL,       1 << 5,       0,           -1 },
 };
 
 /* layout(s) */
@@ -117,7 +119,7 @@ static Key keys[] = {
 	{ MODKEY, XF86XK_AudioMute, spawn, SHCMD("amixer set Capture toggle; kill -RTMIN $(pidof -x sbar)") },
 	{ MODKEY, XK_Print, spawn, SHCMD("xrectsel '%w %h %x %y' | xargs sh -c 'ffmpeg -f x11grab -s \"$1x$2\" -i \"$DISPLAY+$3,$4\" -vframes 1 \"$XDG_PICTURES_DIR/screenshots/$(time.uuid).png\"' shell && notify-send 'Screenshot Finished'") },
 	{ MODKEY, XK_n, spawn, SHCMD("dunstctl close") },
-	{ MODKEY, XK_q, spawn, SHCMD("qbittorrent") },
+	{ MODKEY, XK_q, spawn, SHCMD("qbittorrent & alacritty -t monerod -e monerod") },
 	{ MODKEY, XK_r, spawn, SHCMD("xsel -ob | rev | xsel -ib") },
 	// Use "$(xsel -op)" instead of "xsel -op | sdcv" because: the latter won't quit if found items similar and require user input. Not sure why.
 	// use env inside, to fix a bug: alacritty created by `alacritty msg create-window` will quit immediately if result is less than one page.
