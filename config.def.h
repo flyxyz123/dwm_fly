@@ -131,7 +131,6 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask, XK_Print, spawn, SHCMD("reco") },
 	{ MODKEY|ShiftMask, XK_n, spawn, SHCMD("alarm 12 'Boiling Water!'") },
 	{ MODKEY|ShiftMask, XK_s, spawn, SHCMD("shufwall") },
-	{ MODKEY|ShiftMask, XK_w, spawn, SHCMD("mullvad-exclude $BROWSER") },
 	{ MODKEY|ShiftMask, XK_y, spawn, SHCMD("mpvy -a") },
 	//{ 0, XK_Caps_Lock,spawn, SHCMD("sleep 0.2; kill -RTMIN+3 $(pidof -x sbar)") },
 };
